@@ -1,13 +1,16 @@
 {
   "name": "code-oss-dev",
-  "version": "1.52.0",
-  "distro": "9793eaebda7151620938b28371d118d9f1ce533a",
+  "version": "1.53.0",
+  "distro": "1aaf2adfd4fd7c35c133724c4d97e103f2fa331f",
   "author": {
     "name": "Microsoft Corporation"
   },
   "license": "MIT",
   "main": "./out/main",
   "private": true,
+  "script": {
+    "update": "git fetch upstream && git merge upstream/master"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/microsoft/vscode.git"

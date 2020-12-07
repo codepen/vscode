@@ -111,7 +111,7 @@ class IconRegistry implements IIconRegistry {
 		if (existing) {
 			if (description && !existing.description) {
 				existing.description = description;
-				this.iconSchema.properties[id].markdownDescription = `${description}: $(${id})`;
+				this.iconSchema.properties[id].markdownDescription = `${description} $(${id})`;
 				const enumIndex = this.iconReferenceSchema.enum.indexOf(id);
 				if (enumIndex !== -1) {
 					this.iconReferenceSchema.enumDescriptions[enumIndex] = description;
@@ -210,7 +210,7 @@ class IconRegistry implements IIconRegistry {
 		const contributions = Object.keys(this.iconsById).map(key => this.iconsById[key]);
 
 		for (const i of contributions.sort(sorter)) {
-			reference.push(`|<i class="${classNames(i)}"></i>|${i.id}|${ThemeIcon.isThemeIcon(i.defaults) ? i.defaults.id : ''}|`);
+			reference.push(`|<i class="${classNames(i)}"></i>|${i.id}|${ThemeIcon.isThemeIcon(i.defaults) ? i.defaults.id : ''}|${i.description || ''}|`);
 
 			if (!ThemeIcon.isThemeIcon((i.defaults))) {
 				docCss.push(`.codicon-${i.id}:before { content: "${i.defaults.character}" }`);
